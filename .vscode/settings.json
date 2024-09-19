@@ -1,0 +1,33 @@
+{
+  "python.analysis.typeCheckingMode": "off",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.extraPaths": [
+    //Additional import search resolution paths (https://github.com/microsoft/pylance-release/wiki/Opening-Large-Workspaces-in-VS-Code)
+    "nvsf",
+    "nvsf/kitti360Scripts",
+],
+"python.analysis.exclude": [
+  //Folder to exlude during change tracking  (https://github.com/microsoft/pylance-release/wiki/Opening-Large-Workspaces-in-VS-Code)
+  "**/__pycache__", 
+  "**/build", 
+  ".git", 
+  "nvsf/data",
+  "nvsf/log"
+],
+"python.analysis.include": [
+  //Folder to include during change tracking (https://github.com/microsoft/pylance-release/wiki/Opening-Large-Workspaces-in-VS-Code)
+
+],
+"workbench.colorCustomizations": {
+  "commandCenter.border": "#e7e7e799",
+  "sash.hoverBorder": "#1f6fd0",
+  "titleBar.activeBackground": "#1857a4",
+  "titleBar.activeForeground": "#e7e7e7",
+  "titleBar.inactiveBackground": "#1857a499",
+  "titleBar.inactiveForeground": "#e7e7e799"
+},
+"peacock.remoteColor": "#1857a4",
+"files.associations": {
+  "algorithm": "cpp"
+}
+}

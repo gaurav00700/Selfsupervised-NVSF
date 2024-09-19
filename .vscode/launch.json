@@ -1,0 +1,46 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+          "name": "main_nvsf",
+          "type": "debugpy",
+          "request": "launch",
+          // "program": "${file}",
+          "program": "nvsf/scripts/main_nvsf.py",
+          "console": "integratedTerminal",
+          "justMyCode": true,
+          "env": {
+            "MPLBACKEND": "TkAgg", // "Qt4Agg", "agg" , "TkAgg"
+            "PYDEVD_WARN_EVALUATION_TIMEOUT": "500",
+            "PYTORCH_NO_CUDA_MEMORY_CACHING": "1",
+            "CUDA_LAUNCH_BLOCKING": "1", // For cuda out of memory warning
+            "DISPLAY": "dergbcl1078n001:10.0", // "dergbcl1078n001:11.0" or "localhost:15.0" 
+          },
+          "args": [
+            "--config", "nvsf/configs/kitti360_1908.txt",
+          ]
+        },
+        {
+          "name": "preprocess_data",
+          "type": "debugpy",
+          "request": "launch",
+          // "program": "${file}",
+          "program": "nvsf/scripts/preprocess_data.py",
+          "console": "integratedTerminal",
+          "justMyCode": true,
+          "env": {
+            "MPLBACKEND": "TkAgg", // "Qt4Agg", "agg" , "TkAgg"
+            "PYDEVD_WARN_EVALUATION_TIMEOUT": "500",
+            "PYTORCH_NO_CUDA_MEMORY_CACHING": "1",
+            "DISPLAY": "dergbcl1078n001:10.0", // "dergbcl1078n001:10.0" or "localhost:15.0" 
+          },
+          "args": [
+            "--dataset", "kitti360",
+            "--sequence_name", "1908",
+              ]
+        }
+    ]
+}

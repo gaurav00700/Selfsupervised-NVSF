@@ -1,0 +1,3 @@
+[submodule "nvsf/kitti360Scripts"]
+	path = nvsf/kitti360Scripts
+	url = https://github.com/autonomousvision/kitti360Scripts.git

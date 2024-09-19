@@ -1,0 +1,17 @@
+*__pycache__
+*.ply
+*.npy
+*.txt
+!requirements.txt
+!nvsf/configs/*.txt
+*nvsf/data
+*tmp
+*.egg-info
+*build
+*exp
+*nvsf/log
+*lock
+*log
+*.sif
+*.tar
+*.png
