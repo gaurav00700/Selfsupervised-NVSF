@@ -81,13 +81,13 @@ python -c "import nvsf; print(nvsf.__version__)"
 nvsf
 └──data
     └── kitti360
-        └── source_data
-            ├── calibration
-            ├── data_2d_raw
-            ├── data_2d_semantics
-            ├── data_3d_bboxes
-            ├── data_3d_raw
-            └── data_poses
+        ├── source_data
+        │   ├── calibration
+        │   ├── data_2d_raw
+        │   ├── data_2d_semantics
+        │   ├── data_3d_bboxes
+        │   ├── data_3d_raw
+        │   └── data_poses
 ```
 ### 2. Preprocess the dataset
 * Run the following command to generating Pano images, scene jsons and configs file (saved at nvsf/configs)
