@@ -1,8 +1,13 @@
 
-<h1 align="center">Self-Supervised Multimodal NeRF for Autonomous Driving (NVSF)</h1>
+<div align="center">
 
-![NVSF](./assets/nvsf_network.png)
+<h2>Self-Supervised Multimodal NeRF for Autonomous Driving (NVSF)</h2>  
 
+<h1><img src="./assets/nvsf_network.png" width=85%></h1>
+
+**[Project Page](https://gaurav00700.github.io/ProjectPage-Selfsupervised-NVSF/) | [Paper (arXiv)](https://arxiv.org) | [Video](https://www.youtube.com/)**
+
+</div>
 
 ## Introduction
 
