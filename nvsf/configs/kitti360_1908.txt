@@ -10,26 +10,17 @@ scale = 0.010851959895748291
 offset = [1063.6691809462566, 3765.2393276654057, 112.25726768813286]
 
 # For Loss function
-alpha_d = 1 
-alpha_i = 0.1
-alpha_r = 0.01 
-alpha_grad = 0.1
-alpha_rgb = 1 
 flow_loss
 grad_loss
 use_error_map
 use_refine
 
 # For Rendering
-enable_lidar 
-enable_rgb 
-num_rays_lidar = 2048  
-num_rays = 2048        
+enable_lidar
+enable_rgb
 
 # Training configuration
-name = nvsf   #name of experiment
 fp16
 preload
-workspace=nvsf/log/kitti360
-#vis_training
-ckpt = scratch 
+workspace = nvsf/log/kitti360
+ckpt = scratch

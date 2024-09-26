@@ -26,7 +26,6 @@ Point Cloud NVS           |  Image NVS
 
 ## TODO
  1. [ ] Add experiments result
- 2. [ ] Add links of Project page and paper
 
 ## Installation
 ### 1. Prepare the environment
@@ -38,12 +37,12 @@ git clone --recursive https://github.com/gaurav00700/Selfsupervised-NVSF.git && 
 conda create -n nvsf python=3.9 -y && conda activate nvsf
 ```
 ### 2.  Packages installation
-* OPTION 1: Using setup (This will take a while)
+* OPTION 1: Using setup for CUDA 11.8 (This will take a while)
 ```bash
 python setup.py develop
 ```
 
-* OPTION 2: Manual installation
+* OPTION 2: Manual installation for custom CUDA version
 ```bash
 # Torch 2.1.2 with CUDA 11.8
 pip install torch==2.1.2+cu118 torchvision==0.16.2+cu118 --extra-index-url https://download.pytorch.org/whl/cu118
@@ -71,22 +70,23 @@ python -c "import nvsf; print(nvsf.__version__)"
 
 ## Experiments on KITTI-360 dataset
 
-### 1. Download the dataset [here](https://www.cvlibs.net/datasets/kitti-360/index.php) and put the dataset into `data/kitti360/source_data` as shown below:
+### 1. Download the dataset [here](https://www.cvlibs.net/datasets/kitti-360/index.php) put the dataset into `nvsf/data/kitti360/source_data` as shown below.
 
 ```bash
-data
-└── kitti360
-    └── source_data
-        ├── calibration
-        ├── data_2d_raw
-        ├── data_2d_semantics
-        ├── data_3d_bboxes
-        ├── data_3d_raw
-        └── data_poses
+nvsf
+└──data
+    └── kitti360
+        └── source_data
+            ├── calibration
+            ├── data_2d_raw
+            ├── data_2d_semantics
+            ├── data_3d_bboxes
+            ├── data_3d_raw
+            └── data_poses
 ```
 ### 2. Preprocess the dataset
-* Run the following command to generating Pano images, scene jsons and configs file (saved at nvsf/configs )
-
+* Run the following command to generating Pano images, scene jsons and configs file (saved at nvsf/configs)
+* We use the sequence `2013_05_28_drive_0000_sync` for all the experiments
 ```bash
 python nvsf/scripts/preprocess_data.py --dataset kitti360 --sequence_name 1908
 ```
@@ -94,28 +94,46 @@ python nvsf/scripts/preprocess_data.py --dataset kitti360 --sequence_name 1908
 * After preprocessing, your folder structure should look like this:
 
 ```bash
-nvsf/data
-└── kitti360
-    ├── source_data
-    │   ├── calibration
-    │   ├── data_2d_raw
-    │   ├── data_3d_raw
-    │   └── data_poses
-    ├── train
-    │   ├── sequence_name
-    │   │   ├── 00001.npy
-    │   │   ├── ...  .npy
-    │   │   ├── transforms_{sequence_id}test.json
-    │   │   ├── transforms_{sequence_id}train.json
-    │   │   ├── transforms_{sequence_id}val.json
-    │   │   └── transforms_{sequence_id}all.json
+nvsf
+└──data
+    └── kitti360
+        ├── source_data
+        │   ├── calibration
+        │   ├── data_2d_raw
+        │   ├── data_2d_semantics
+        │   ├── data_3d_bboxes
+        │   ├── data_3d_raw
+        │   └── data_poses
+        ├── train
+        │   ├── sequence_name
+        │   │   ├── 00001.npy
+        │   │   ├── ...  .npy
+        │   │   ├── transforms_{sequence_id}test.json
+        │   │   ├── transforms_{sequence_id}train.json
+        │   │   ├── transforms_{sequence_id}val.json
+        │   │   └── transforms_{sequence_id}all.json
 ```
 
-### 3. Start Training
+### 3. Training
 
 ```bash
 python nvsf/scripts/main_nvsf.py --config nvsf/configs/kitti360_1908.txt
 ```
+
+### 4. Track training using Tensorboard
+```bash
+tensorboard --logdir=./nvsf/log/kitti360
+```
+
+### 5. Validation
+
+```bash
+python nvsf/scripts/main_nvsf.py --config nvsf/configs/kitti360_1908.txt --ckpt latest --test_eval
+```
+
+## Extras
+* Reduce the batch size of `--num_rays` and `--num_rays_lidar` to solve CUDA out of memory error
+* Network was trained on a single Nvidia v100 GPU
 
 ## Acknowledgments
 This code is built on top of the [Lidar_nerf](https://github.com/tangtaogo/lidar-nerf) and [LiDAR4D](https://github.com/ispc-lab/LiDAR4D.git) codebases.

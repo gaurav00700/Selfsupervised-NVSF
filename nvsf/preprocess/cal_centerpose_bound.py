@@ -132,9 +132,11 @@ def main(
     print("Scale: ", scale , sep='\t')
     print(f"============================[END]====================================")
 
-    #save scene info in Config file
+    # Save scene info in config file
     config_path = f"nvsf/configs/{dataset}_{sequence_name}.txt"
     with open(config_path, "w") as f:
+        # Scene information
+        f.write("# Scene\n")
         f.write("dataloader = {}\n".format(dataset))
         f.write("path = {}\n".format(f"nvsf/data/{dataset}"))
         f.write("sequence_id = {}\n".format(sequence_name))
@@ -144,6 +146,25 @@ def main(
         f.write("lidar_max_depth = {}\n".format(lidar_range))
         f.write("scale = {}\n".format(scale))
         f.write("offset = {}\n".format(centerpose))
+
+        # Loss function settings
+        f.write("\n# For Loss function\n")
+        f.write("flow_loss\n")
+        f.write("grad_loss\n")
+        f.write("use_error_map\n")
+        f.write("use_refine\n")
+
+        # Rendering settings
+        f.write("\n# For Rendering\n")
+        f.write("enable_lidar\n")
+        f.write("enable_rgb\n")
+
+        # Training configuration
+        f.write("\n# Training configuration\n")
+        f.write("fp16\n")
+        f.write("preload\n")
+        f.write("workspace = {}\n".format(f"nvsf/log/{dataset}"))
+        f.write("ckpt = scratch\n")
     
     print(f"[INFO] Config file saved at: {config_path}", sep='\t')
 
