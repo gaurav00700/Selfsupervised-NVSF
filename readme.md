@@ -5,7 +5,7 @@
 
 <h1><img src="./assets/nvsf_network.png" width=100%></h1>
 
-**[Project Page](https://gaurav00700.github.io/ProjectPage-Selfsupervised-NVSF/) | [Paper (arXiv)](https://arxiv.org) | [Video](https://youtu.be/MlZFP5wc1Lc)**
+**[Project Page](https://gaurav00700.github.io/ProjectPage-Selfsupervised-NVSF/) | [Paper (arXiv)](https://arxiv.org/abs/2506.19615) | [Video](https://youtu.be/MlZFP5wc1Lc)**
 
 </div>
 
@@ -31,6 +31,7 @@ Point Cloud NVS           |  Image NVS
 
 ## TODO
  1. [ ] Add experiments result
+ 1. [x] Add Paper link
 
 ## Installation
 ### 1. Prepare the environment
@@ -149,15 +150,25 @@ This code is built on top of the [Lidar_nerf](https://github.com/tangtaogo/lidar
     author  = {Tao, Tang and Gao, Longfei and Wang, Guangrun and Lao, Yixing and Chen, Peng and Zhao hengshuang and Hao, Dayang and Liang, Xiaodan and Salzmann, Mathieu and Yu, Kaicheng},
     journal = {arXiv preprint arXiv:2304.10406},
     year    = {2023}
-}
+    }
 ```
 
 ```bibtex
 @inproceedings{zheng2024lidar4d,
-  title     = {LiDAR4D: Dynamic Neural Fields for Novel Space-time View LiDAR Synthesis},
-  author    = {Zheng, Zehan and Lu, Fan and Xue, Weiyi and Chen, Guang and Jiang, Changjun},
-  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year      = {2024}
-  }
+    title     = {LiDAR4D: Dynamic Neural Fields for Novel Space-time View LiDAR Synthesis},
+    author    = {Zheng, Zehan and Lu, Fan and Xue, Weiyi and Chen, Guang and Jiang, Changjun},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    year      = {2024}
+    }
 ```
 
+## Citation
+If you find our repo or paper helpful, feel free to support us with a star 🌟 or use the following citation:  
+```bibtex
+@misc{2506.19615,
+    Author = {Gaurav Sharma and Ravi Kothari and Josef Schmid},
+    Title = {Self-Supervised Multimodal NeRF for Autonomous Driving},
+    Year = {2025},
+    Eprint = {arXiv:2506.19615},
+    }
+```
